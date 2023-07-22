@@ -7,6 +7,7 @@ export const TaskInput = ({ addTaskFunc }) => {
   const addTaskBtnOnClick = () => {
     addTaskFunc(taskInput);
     setTaskInput("");
+    console.log(completed);
   };
 
   const taskInputOnChange = (event) => {
