@@ -32,7 +32,7 @@ export default function Home() {
     setTasks(newTasks);
   };
 
-  let done = tasks.filter((task) => task.completed === true);
+
 
   return (
     // Main container
@@ -43,7 +43,7 @@ export default function Home() {
       <div style={{ maxWidth: "400px" }} className="mx-auto">
         {/* Task summary */}
         <p className="text-center text-secondary fst-italic">
-          All ({tasks.length}) Done ({done.length})
+          All ({tasks.length}) Done ({tasks.filter((task) => task.completed === true).length})
         </p>
         {/* task input */}
         <TaskInput addTaskFunc={addTask} />

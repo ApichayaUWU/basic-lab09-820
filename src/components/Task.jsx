@@ -8,18 +8,19 @@ export const Task = ({
   toggleDoneTaskFunc,
   completed,
 }) => {
-  
+  const [isDone ,setIsDone] = useState(false);
   const deleteBtnOnClick = () => {
     deleteTaskFunc(id);
   };
   const doneBtnOnClick = () => {
-    if(completed === true) {
-      completed = false;
-      console.log(completed);
+    toggleDoneTaskFunc(id);
+    if(isDone === true) {
+      setIsDone(false);
+      
     }
     else {
-      completed = true;
-      console.log(completed);
+      setIsDone(true);
+      
     }
   };
 
@@ -31,7 +32,7 @@ export const Task = ({
         But if task is not completed : 
         <span>{title}</span>
       */}
-      <span className={{completed} ? "text-decoration-line-through" : ""}>{title}</span>
+      <span className={isDone ? "text-decoration-line-through" : ""}>{title}</span>
       <button className="btn btn-success" onClick={doneBtnOnClick}>Done</button>
       <button className="btn btn-danger" onClick={deleteBtnOnClick}>
         Delete
